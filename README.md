@@ -82,7 +82,7 @@ Need to decide on a proper testing method.
 Resources
 =========
 
-http://gruntjs.com/getting-started
-http://handlebarsjs.com/      Note: This isn't really what slender should be for. It should be HTML agnostic.
-http://qunitjs.com/
-http://pivotal.github.io/jasmine/
+- http://gruntjs.com/getting-started    Note: JSHint + Testing framework
+- http://handlebarsjs.com/    Note: This isn't really what slender should be for. It should be HTML agnostic.
+- http://qunitjs.com/
+- http://pivotal.github.io/jasmine/
