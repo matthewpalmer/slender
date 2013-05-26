@@ -2,10 +2,11 @@ slender
 =======
 
 A thin front end framework for interacting with a RESTful API.
-**Features:**
+**Contents:**
 - [RESTful Interactions](#restful-interactions)
 - [Data Binding](#data-binding)
 - [Single Page Apps](#single-page-apps)
+- [Tests](#tests)
 
 Usage
 =====
@@ -71,3 +72,6 @@ slender.update();                     //.update() once changes have been made.
 
 ##Single Page Apps
 Helpful additions if you are doing a single page app.
+
+##Tests
+Need to decide on a proper testing method.
