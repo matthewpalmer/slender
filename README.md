@@ -2,6 +2,10 @@ slender
 =======
 
 A thin front end framework for interacting with a RESTful API.
+**Features:**
+- [RESTful Interactions](#RESTful-Interactions)
+- [Data Binding](Data-Binding)
+- [Single Page Apps](Single-Page-Apps)
 
 Usage
 =====
@@ -51,7 +55,7 @@ slender.delete('https://.../', function(response) {
 ```
 
 
-##Data binding
+##Data Binding
 Any changes you make on the local side will be automatically done to the server.
 
 ```js
