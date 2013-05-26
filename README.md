@@ -3,9 +3,9 @@ slender
 
 A thin front end framework for interacting with a RESTful API.
 **Features:**
-- [RESTful Interactions](#RESTful-Interactions)
-- [Data Binding](#Data-Binding)
-- [Single Page Apps](#Single-Page-Apps)
+- [RESTful Interactions](#restful-interactions)
+- [Data Binding](#data-binding)
+- [Single Page Apps](#single-page-apps)
 
 Usage
 =====
