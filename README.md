@@ -9,6 +9,8 @@ A thin front end framework for interacting with a RESTful API.
 - [Single Page Apps](#single-page-apps)
 - [Tests](#tests)
 
+**Build and run tests with `grunt`**
+
 Usage
 =====
 
