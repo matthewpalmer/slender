@@ -73,5 +73,15 @@ slender.update();                     //.update() once changes have been made.
 ##Single Page Apps
 Helpful additions if you are doing a single page app.
 
-##Tests
+Tests
+=====
+
 Need to decide on a proper testing method.
+
+Resources
+=========
+
+http://gruntjs.com/getting-started
+http://handlebarsjs.com/      Note: This isn't really what slender should be for. It should be HTML agnostic.
+http://qunitjs.com/
+http://pivotal.github.io/jasmine/
