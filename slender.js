@@ -1,4 +1,10 @@
-//index//The methods for interacting with the REST API
+//index
+function oneTest(first) {
+  console.log(first);
+  if (first == 'one') {
+    console.log('one');
+  }
+}//The methods for interacting with the REST API
 //Reflect local changes to the API
 /*
   have a model that is scraped in from api on page load
