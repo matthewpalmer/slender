@@ -18,6 +18,12 @@
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
-    "grunt-contrib-nodeunit": "*"
+    "grunt-contrib-nodeunit": "*",
+    "mocha": "*",
+    "chai": "*",
+    "jsdom": "*",
+    "jquery": "*",
+    "grunt-simple-mocha": "~0.4.0",
+    "expect.js": "*"
   }
 }

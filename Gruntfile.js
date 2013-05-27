@@ -16,9 +16,6 @@ module.exports = function(grunt) {
       beforeconcat: ['src/*.js', 'test/*.js'],
       afterconcat: ['<%= pkg.name %>.js']
     },
-    nodeunit: {
-      all: ['test/*_test.js']
-    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -27,16 +24,28 @@ module.exports = function(grunt) {
         src: '<%= pkg.name %>.js',
         dest: '<%= pkg.name %>.min.js'
       }
-    }
+    },
+    simplemocha: {
+      options: {
+        globals: ['should'],
+        timeout: 3000,
+        ignoreLeaks: false,
+        grep: '',
+        ui: 'bdd',
+        reporter: 'tap'
+    },
+
+    all: { src: 'test/*.js' }
+  }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
   // Default task(s).
-  grunt.registerTask('default', ['concat', 'jshint', 'nodeunit', 'uglify']);
+  grunt.registerTask('default', ['simplemocha', 'concat', 'jshint', 'uglify']);
 
 };

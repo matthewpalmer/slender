@@ -1,4 +1,4 @@
-//The methods for interacting with the REST API
+//index//The methods for interacting with the REST API
 //Reflect local changes to the API
 /*
   have a model that is scraped in from api on page load
