@@ -4,7 +4,8 @@
   "description": "A thin front end framework for interacting with a RESTful API.",
   "main": "slender.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "grunt",
+    "test": "grunt simplemocha"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,6 @@
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
-    "grunt-contrib-nodeunit": "*",
     "mocha": "*",
     "chai": "*",
     "jsdom": "*",
