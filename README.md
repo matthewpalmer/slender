@@ -53,7 +53,7 @@ slender.put('https://.../', function(response) {
 
 **delete**: Used for DELETE requests.
 ```js
-slender.delete('https://.../', function(response) {
+slender.del('https://.../', function(response) {
   console.log(response);
 });
 ```

@@ -18,9 +18,11 @@ function del(url, data, callback) {
   $.del(url, data, callback);
 }
 
+/*
 module.exports = {
   get: get,
   post: post,
   put: put,
   del: del
-}
+};
+*/

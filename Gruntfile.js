@@ -25,27 +25,21 @@ module.exports = function(grunt) {
         dest: '<%= pkg.name %>.min.js'
       }
     },
-    simplemocha: {
-      options: {
-        globals: ['should'],
-        timeout: 3000,
-        ignoreLeaks: false,
-        grep: '',
-        ui: 'bdd',
-        reporter: 'tap'
-    },
-
-    all: { src: 'test/*.js' }
-  }
+    jasmine : {
+      src : 'src/*.js',
+      options : {
+        specs : 'spec/*_spec.js'
+      }
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task(s).
-  grunt.registerTask('default', ['simplemocha', 'concat', 'jshint', 'uglify']);
+  grunt.registerTask('default', ['jasmine', 'concat', 'jshint', 'uglify']);
 
 };
