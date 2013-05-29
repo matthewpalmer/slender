@@ -2,7 +2,7 @@
 //reliant on eachother. It would be better to have 
 //them run individually, but this is difficult to do
 //because localStorage isn't async.
-//I hate the way Jasmine does async tests.
+//I hate the way Jasmine makes me do async tests.
 
 describe("localstore", function() {
   it("should store & retrieve json objects to the local storage", function() {

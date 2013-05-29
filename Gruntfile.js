@@ -5,15 +5,15 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
-        separator: ''
+        separator: '\n\n'
       },
       dist: {
-        src: ['src/index.js', 'src/rest.js', 'src/bind.js'],
+        src: ['src/*.js'],
         dest: '<%= pkg.name %>.js'
       }
     },
     jshint: {
-      beforeconcat: ['src/*.js', 'test/*.js'],
+      beforeconcat: ['src/*.js', 'spec/*.js'],
       afterconcat: ['<%= pkg.name %>.js']
     },
     uglify: {

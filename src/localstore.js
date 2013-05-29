@@ -11,7 +11,7 @@ function store(callback, name, jsonObj) {
 function retrieve(callback, name) {
   // Retrieve the object from storage
   if (name) {
-    var retrievedObject = localStorage.getItem(name);
+    var retrievedObject = localStorage.getItem(name); //not async!
     console.log('retrievedObject: ', JSON.parse(retrievedObject));
     callback(null, retrievedObject);
   } else {
