@@ -124,13 +124,10 @@ slender.del('https://.../', function(response) {
 ```
 
 
-##Single Page Apps
-Helpful additions if you are doing a single page app.
-
 Tests
 =====
 
-Need to decide on a proper testing method.
+Tests are done with Jasmine in a headless browser instance. Use `grunt jasmine` to run the tests.
 
 Resources
 =========
