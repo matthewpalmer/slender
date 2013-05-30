@@ -51,12 +51,12 @@ sl.register({
 
 __2. Pull & Save__
 
-Runs a `GET` request on the registered URL and saves the returned object to the local store.
+Runs a `GET` request on the registered URL and saves the returned object to the local store. `pull` also saves to the local store. This is part of the initial 'setup stage' - it is generally only run once.
 
 ```js
 //Pull
 sl.pull(function(err, data) {
-  //callback for when `pull` is done. Dev note: `pull` also saves to the local store
+  //callback for when `pull` is done. 
   console.log(err, data);
 });
 ```
