@@ -74,18 +74,6 @@ sl.updateRemote();
 ```
 
 
-```js
-//Bind
-slender.bind(URL, METHOD, ID|OBJ);    //Most likely a PUT request
-//Make some changes to the local model
-function makeChanges(ID) {            //This *only* changes the model, the views still need to be worked out.
-  ID.age = '18';                      //Or could use some kind of evented system. i.e., ID.on('change').update();
-}
-//Update the remote model
-slender.update();                     //.update() once changes have been made. 
-```
-
-
 ##RESTful Interactions
 
 These methods follow a basic pattern of `(url, data, callback)`, where `data` is optional.
