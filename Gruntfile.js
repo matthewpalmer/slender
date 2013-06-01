@@ -22,13 +22,14 @@ module.exports = function(grunt) {
       },
       build: {
         src: '<%= pkg.name %>.js',
-        dest: '<%= pkg.name %>.min.js'
+        dest: 'slender.min.js'
       }
     },
     jasmine : {
       src : 'src/*.js',
       options : {
-        specs : 'spec/*_spec.js'
+        specs: 'spec/*_spec.js',
+        vendor: 'jquery.min.js' 
       }
     }
   });

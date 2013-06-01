@@ -1,7 +1,10 @@
-//index
-function oneTest(first) {
-  console.log(first);
-  if (first == 'one') {
-    console.log('one');
-  }
+//No idea if this is the proper way
+function Slender(foo) {
+  this.pull = pull;
+  this.updateRemote = updateRemote;
+  this.register = register;
+  this.localstore = {
+    store: store,
+    retrieve: retrieve
+  };
 }

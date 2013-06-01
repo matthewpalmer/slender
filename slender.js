@@ -15,33 +15,79 @@ function hello() {
   return 'hello';
 }
 
-//index
-function oneTest(first) {
-  console.log(first);
-  if (first == 'one') {
-    console.log('one');
-  }
+//No idea if this is the proper way
+function Slender(foo) {
+  this.pull = pull;
+  this.updateRemote = updateRemote;
+  this.register = register;
+  this.localstore = {
+    store: store,
+    retrieve: retrieve
+  };
 }
 
-function store(callback, name, jsonObj) {
-  if (name && jsonObj) {
+function store(objectName, jsonObj, callback) {
+  if (objectName && jsonObj) {
     // Put the object into storage
-    localStorage.setItem(name, JSON.stringify(jsonObj)); //this isn't async!
+    localStorage.setItem(objectName, JSON.stringify(jsonObj)); //this isn't async!
     callback(null, JSON.stringify(jsonObj));
   } else {
     callback('invalid arguments');
   }
 }
 
-function retrieve(callback, name) {
+function retrieve(objectName, callback) {
   // Retrieve the object from storage
-  if (name) {
-    var retrievedObject = localStorage.getItem(name); //not async!
+  if (objectName) {
+    var retrievedObject = localStorage.getItem(objectName); //not async!
     console.log('retrievedObject: ', JSON.parse(retrievedObject));
     callback(null, retrievedObject);
   } else {
     callback('invalid arguments');
   }
+}
+
+//Pull is untested because it's way difficult to test this
+//Cross domain requests suck
+//This module contains awful code; refactor ASAP.
+function pull(objectName, callback) {
+  //find the objectName in that object
+  //$.ajax get the remote object
+  console.log('we are in the pull');
+  retrieve(objectName, function(err, data) {
+    if (err) {
+      callback('pull error');
+    } else {
+      //console.info('data is ', data);
+      var parsedData = JSON.parse(data);
+      console.log('dd', parsedData, data);
+      var urlToGET = parsedData.urls.getURL;
+      //console.info(urlToGET, data);
+      console.info($);
+      $.get(urlToGET, {}, function(retData) {
+        console.info('pull was performed. ', retData);
+        //pull also saves to the local store
+        parsedData.data = JSON.parse(retData);
+        store(objectName, parsedData, function(err, data) {
+          console.info('store done');
+          callback(null, data);
+        });
+      });
+      //console.info('after jquery');
+    }
+  });
+
+  
+}
+
+function register(nameOfObject, objToBeSaved, callback) {
+  store(nameOfObject, objToBeSaved, function(err, data) {
+    if (err) {
+      callback('register error');
+    } else {
+      callback(null, data);
+    }
+  });
 }
 
 //The methods for interacting with the REST API
@@ -72,3 +118,23 @@ module.exports = {
   del: del
 };
 */
+
+//does a put request for now
+//this module untested due to the same
+//cross domain issues with pull
+function updateRemote(objectName, jsonToUpload, callback) {
+  //retrieve the registered put url
+  retrieve(objectName, function(err, data) {
+    var parseData = JSON.parse(data);
+    var putURL = parseData.urls.put;
+    var d = JSON.stringify(jsonToUpload);
+    $.ajax({
+      type: "PUT",
+      url: putURL,
+      contentType: "application/json",
+      data: d
+    }).done(function(e) {
+      callback(e);
+    });
+  });
+}
