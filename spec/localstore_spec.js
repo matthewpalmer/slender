@@ -10,7 +10,7 @@ describe('localstore', function() {
     runs(function() {
       flag = false;
 
-      store('slTestObjectLocalstore', { 'one': 3, 'two': 2, 'three': 3 }, function(err, data) {
+      store('slTestObjectLocalstore', { one: 3, two: 2, three: 3 }, function(err, data) {
         if (!err) {
           storedVal = data;
         } else {
@@ -25,7 +25,7 @@ describe('localstore', function() {
           retrievedVal = 'error in retrieve';
         }
       });
-      if (storedVal === retrievedVal) {
+      if (JSON.stringify(storedVal) === retrievedVal) {
         flag = true;
         didMatch = true;
       } else {
@@ -62,7 +62,7 @@ describe('localstore', function() {
           retrievedVal = 'error in retrieve';
         }
       });
-      if (JSON.stringify(updatedObject) === retrievedVal) {
+      if (JSON.stringify(updatedObject) == retrievedVal) {
         flag = true;
         didMatch = true;
       } else {

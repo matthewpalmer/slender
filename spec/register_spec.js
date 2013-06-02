@@ -24,7 +24,6 @@ describe('register', function() {
           retrievedVal = 'error in retrieve';
         }
       });    //This is not the right name
-    console.info(JSON.stringify(newRegisterObj), retrievedVal);
       if (JSON.stringify(newRegisterObj) === retrievedVal) {
         flag = true;
         didMatch = true;

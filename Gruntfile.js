@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: '<%= pkg.name %>.js',
-        dest: 'slender.min.js'
+        dest: '../slender-example/slender.min.js'
       }
     },
     jasmine : {

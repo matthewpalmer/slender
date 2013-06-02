@@ -16,9 +16,11 @@ function pull(objectName, callback) {
       //console.info(urlToGET, data);
       console.info($);
       $.get(urlToGET, {}, function(retData) {
-        console.info('pull was performed. ', retData);
         //pull also saves to the local store
-        parsedData.data = JSON.parse(retData);
+        console.log(retData);
+        var releventData = JSON.parse(retData);
+        parsedData.data = releventData.data;
+        console.log('fpd ', parsedData);
         store(objectName, parsedData, function(err, data) {
           console.info('store done');
           callback(null, data);

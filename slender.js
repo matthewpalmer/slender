@@ -30,7 +30,7 @@ function store(objectName, jsonObj, callback) {
   if (objectName && jsonObj) {
     // Put the object into storage
     localStorage.setItem(objectName, JSON.stringify(jsonObj)); //this isn't async!
-    callback(null, JSON.stringify(jsonObj));
+    callback(null, jsonObj);
   } else {
     callback('invalid arguments');
   }
@@ -40,7 +40,7 @@ function retrieve(objectName, callback) {
   // Retrieve the object from storage
   if (objectName) {
     var retrievedObject = localStorage.getItem(objectName); //not async!
-    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    
     callback(null, retrievedObject);
   } else {
     callback('invalid arguments');
@@ -65,9 +65,11 @@ function pull(objectName, callback) {
       //console.info(urlToGET, data);
       console.info($);
       $.get(urlToGET, {}, function(retData) {
-        console.info('pull was performed. ', retData);
         //pull also saves to the local store
-        parsedData.data = JSON.parse(retData);
+        console.log(retData);
+        var releventData = JSON.parse(retData);
+        parsedData.data = releventData.data;
+        console.log('fpd ', parsedData);
         store(objectName, parsedData, function(err, data) {
           console.info('store done');
           callback(null, data);
@@ -126,13 +128,16 @@ function updateRemote(objectName, jsonToUpload, callback) {
   //retrieve the registered put url
   retrieve(objectName, function(err, data) {
     var parseData = JSON.parse(data);
-    var putURL = parseData.urls.put;
-    var d = JSON.stringify(jsonToUpload);
+    
+    parseData = JSON.parse(parseData);
+    var putURL = parseData.urls.putURL;
+    console.log(putURL, parseData);
+    //var d = JSON.stringify(jsonToUpload);
     $.ajax({
       type: "PUT",
       url: putURL,
       contentType: "application/json",
-      data: d
+      data: data
     }).done(function(e) {
       callback(e);
     });

@@ -5,13 +5,16 @@ function updateRemote(objectName, jsonToUpload, callback) {
   //retrieve the registered put url
   retrieve(objectName, function(err, data) {
     var parseData = JSON.parse(data);
-    var putURL = parseData.urls.put;
-    var d = JSON.stringify(jsonToUpload);
+    
+    parseData = JSON.parse(parseData);
+    var putURL = parseData.urls.putURL;
+    console.log(putURL, parseData);
+    //var d = JSON.stringify(jsonToUpload);
     $.ajax({
       type: "PUT",
       url: putURL,
       contentType: "application/json",
-      data: d
+      data: data
     }).done(function(e) {
       callback(e);
     });
