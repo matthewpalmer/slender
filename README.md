@@ -125,4 +125,4 @@ Resources
 - http://gruntjs.com/getting-started    Note: JSHint + Testing framework
 - http://handlebarsjs.com/    Note: This isn't really what slender should be for. It should be HTML agnostic.
 - http://qunitjs.com/
-- http://pivotal.github.io/jasmine/
+- https://jasmine.github.io/
